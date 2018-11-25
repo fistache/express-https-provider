@@ -50,13 +50,7 @@ module.exports = class Certificate {
     this.certificateKeyPath = path.resolve(__dirname, '../ssl/key.pem')
 
     this.hostname = hostname
-    this.httpPort = 80
     this.httpsPort = 443
-  }
-
-  setHttpPort (port) {
-    this.httpPort = port
-    return this
   }
 
   setHttpsPort (port) {
@@ -156,8 +150,6 @@ module.exports = class Certificate {
   }
 
   get () {
-    // todo: if https port is not specified scan it
-
     if (this.isCached()) {
       let certificate = this.getCached()
       return this.isValid(certificate)
