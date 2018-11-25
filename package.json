@@ -1,6 +1,6 @@
 {
   "name": "@aliaksandrparfiankou/yourappname",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": "https://github.com/seafoodframework/yourappname.git",
   "author": "Aliaksandr Parfiankou <aliaksandr.parfiankou@gmail.com>",
