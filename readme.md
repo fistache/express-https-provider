@@ -18,7 +18,7 @@ yarn add yourappname --dev
 ```
 
 ## Usage
-```ecmascript 6
+```JavaScript
 const yourappname = require('yourappname')()
 
 yourappname
