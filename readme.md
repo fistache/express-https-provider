@@ -6,7 +6,7 @@ trusted certificate creation with no chrome warnings,
 errors and other headache. It's work out-of-the-box 
 and simple to use.
 
-![Browser screenshot of trusted certificate on local machine (node.js)](https://github.com/seafoodframework/yourappname/tree/master/docs/images/browser.PNG?raw=true "Browser screenshot of trusted certificate on local machine (node.js)")
+![Browser screenshot of trusted certificate on local machine (node.js)](https://raw.githubusercontent.com/seafoodframework/yourappname/master/docs/images/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
 ## Installation
 Use the package manager [yarn](https://yarnpkg.com) 
