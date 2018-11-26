@@ -1,6 +1,7 @@
 const portscanner = require('portscanner')
 const express = require('express')
 const vhost = require('vhost')
+const vhostManager = require("express-vhost-manager")
 const http = require('http')
 const https = require('https')
 
@@ -11,6 +12,8 @@ module.exports = class AppBuilder {
   constructor() {
     this.state = new AppState()
       .setHostname('yourapp.name')
+
+    this.isPortsAccessChecked = false
 
     this.localhost = '127.0.0.1'
 
@@ -70,7 +73,9 @@ module.exports = class AppBuilder {
     return this
   }
 
-  scanFreePort (currentValue) {
+  // Start is http port + 1 that still free,
+  // but will be used in the future.
+  scanFreePort (currentValue, startPort) {
     return new Promise((resolve, reject) => {
       // noinspection JSIgnoredPromiseFromCall
       portscanner.checkPortStatus(currentValue, this.localhost, (error, status) => {
@@ -79,16 +84,17 @@ module.exports = class AppBuilder {
         }
 
         if (status === 'open') {
-          portscanner.findAPortNotInUse(8000, 9000, this.localhost, (error, port) => {
+          portscanner.findAPortNotInUse(startPort || 8080, 40000, this.localhost, (error, port) => {
             if (error) {
               reject(error)
             }
 
-            console.log('free ' + port)
             resolve(port)
           })
         } else if (status === 'closed') {
           resolve(currentValue)
+        } else {
+          reject('Error')
         }
       })
     })
@@ -96,15 +102,16 @@ module.exports = class AppBuilder {
 
   setPorts () {
     return new Promise((resolve, reject) => {
-      if (this.state.getHttpPort() && this.state.getHttpsPort()) {
+      if (this.isPortsAccessChecked) {
         resolve()
       } else {
-        this.scanFreePort(80)
+        this.scanFreePort(this.state.getHttpPort())
           .then(port => {
             this.state.setHttpPort(port)
-            this.scanFreePort(443)
+            this.scanFreePort(this.state.getHttpsPort(), port + 1000)
               .then(port => {
                 this.state.setHttpsPort(port)
+                this.isPortsAccessChecked = true
                 resolve()
               })
               .catch(error => reject(error))
@@ -135,14 +142,14 @@ module.exports = class AppBuilder {
               if (request.secure) {
                 return next()
               }
-              response.redirect('https://' + request.hostname + request.url)
+              response.redirect(`${this.state.getServingLink()}${request.url}`)
             })
           }
 
           redirect.use(vhost(this.state.getHostname(), app))
 
-          const httpServer = http.createServer(app).listen(80)
-          const httpsServer = https.createServer({key, cert}, redirect).listen(443)
+          const httpServer = http.createServer(redirect).listen(this.state.getHttpPort())
+          const httpsServer = https.createServer({key, cert}, redirect).listen(this.state.getHttpsPort())
 
           this.executeCallbacks(this.chainableMethods.done, callback => {
             callback(httpServer, httpsServer, this.state)
@@ -172,9 +179,7 @@ module.exports = class AppBuilder {
     return new Promise(async (resolve, reject) => {
       await this.setPorts()
         .then(() => {
-          const certificate = new Certificate()
-            .setHttpsPort(this.state.getHttpsPort())
-            .setHostname(this.state.getHostname())
+          const certificate = new Certificate(this.state)
 
           certificate.get()
             .then(certificate => resolve(certificate))

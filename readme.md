@@ -1,4 +1,4 @@
-# express-trusted-ssl
+# yourapp.name
 [![Current Version](https://img.shields.io/npm/v/express-trusted-ssl.svg)](https://github.com/seafoodframework/express-trusted-ssl)
 
 This is a JavaScript library that helps you to 
@@ -15,7 +15,7 @@ or [npm](https://www.npmjs.com/) to install this
 package.
 
 ```bash
-yarn add express-trusted-ssl --dev
+yarn add yourapp.name --dev
 ```
 
 ## Usage
@@ -25,8 +25,11 @@ const server = require('express-trusted-ssl')()
 server
   .modifyApp((app, state) => {
     app.get('/', (request, response) => {
-      response.end(`Trusted certificate on ${state.getServingLink()}`)
+      response.send('example')
     })
+  })
+  .done((http, https, state) => {
+    console.log(`Serving at ${state.getServingLink()}`)
   })
   .run()
 ```
