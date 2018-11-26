@@ -6,7 +6,7 @@
     "https",
     "ssl"
   ],
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "index.js",
   "repository": "https://github.com/seafoodframework/yourappname.git",
   "author": "Aliaksandr Parfiankou <aliaksandr.parfiankou@gmail.com>",
