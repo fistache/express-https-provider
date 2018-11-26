@@ -144,7 +144,7 @@ module.exports = class AppBuilder {
           const httpServer = http.createServer(app).listen(80)
           const httpsServer = https.createServer({key, cert}, redirect).listen(443)
 
-          this.executeCallbacks(this.chainableMethods.modifyRedirect, callback => {
+          this.executeCallbacks(this.chainableMethods.done, callback => {
             callback(httpServer, httpsServer, this.state)
           })
 
