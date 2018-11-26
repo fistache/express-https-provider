@@ -1,5 +1,7 @@
 # express-https-provider
-[![Current Version](https://img.shields.io/npm/v/express-trusted-ssl.svg)](https://github.com/seafoodframework/express-https-provider)
+![Downloads](https://img.shields.io/npm/dw/express-https-provider.svg)
+[![Current Version](https://img.shields.io/npm/v/express-https-provider.svg)](https://github.com/seafoodframework/express-https-provider)
+![License](https://img.shields.io/cocoapods/l/AFNetworking.svg)
 
 This is a JavaScript library that helps you to 
 run development express server easily (or just get a 
