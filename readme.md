@@ -1,12 +1,13 @@
-# Yourappname
-[![Current Version](https://img.shields.io/npm/v/@aliaksandrparfiankou/yourappname.svg)](https://github.com/seafoodframework/yourappname)
+# express-trusted-ssl
+[![Current Version](https://img.shields.io/npm/v/express-trusted-ssl.svg)](https://github.com/seafoodframework/express-trusted-ssl)
 
-Yourappname is a JavaScript library for local server 
-trusted certificate creation with no chrome warnings, 
-errors and other headache. It's work out-of-the-box 
-and simple to use.
+This is a JavaScript library that helps you to 
+run development express server easily (or just get a 
+valid ssl certificate to run a dev server using 
+different from express library). Forget about chrome 
+warnings, errors and etc.
 
-![Browser screenshot of trusted certificate on local machine (node.js)](https://raw.githubusercontent.com/seafoodframework/yourappname/master/docs/images/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
+![Browser screenshot of trusted certificate on local machine (node.js)](https://raw.githubusercontent.com/seafoodframework/express-trusted-ssl/master/docs/images/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
 ## Installation
 Use the package manager [yarn](https://yarnpkg.com) 
@@ -14,14 +15,14 @@ or [npm](https://www.npmjs.com/) to install this
 package.
 
 ```bash
-yarn add yourappname --dev
+yarn add express-trusted-ssl --dev
 ```
 
 ## Usage
 ```JavaScript
-const yourappname = require('yourappname')()
+const server = require('express-trusted-ssl')()
 
-yourappname
+server
   .modifyApp((app, state) => {
     app.get('/', (request, response) => {
       response.end(`Trusted certificate on ${state.getServingLink()}`)

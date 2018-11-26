@@ -1,5 +1,12 @@
 {
-  "name": "@aliaksandrparfiankou/yourappname",
+  "name": "express-trusted-ssl",
+  "keywords": [
+    "express",
+    "https",
+    "ssl",
+    "localhost",
+    "node"
+  ],
   "version": "1.0.2",
   "main": "index.js",
   "repository": "https://github.com/seafoodframework/yourappname.git",
