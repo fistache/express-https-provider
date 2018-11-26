@@ -1,9 +1,8 @@
-const portscanner = require('portscanner')
 const express = require('express')
-const vhost = require('vhost')
-const vhostManager = require("express-vhost-manager")
 const http = require('http')
 const https = require('https')
+const vhost = require('vhost')
+const portscanner = require('portscanner')
 
 const Certificate = require('./Certificate')
 const AppState = require('./AppState')
