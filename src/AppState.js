@@ -1,8 +1,8 @@
 module.exports = class AppState {
   constructor() {
     this.hostname = null
-    this.httpPort = null
-    this.httpsPort = null
+    this.httpPort = 80
+    this.httpsPort = 443
 
     this.redirectToHttps = true
   }

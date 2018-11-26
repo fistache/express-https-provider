@@ -43,24 +43,13 @@ class CertificateApi {
 }
 
 module.exports = class Certificate {
-  constructor(hostname) {
+  constructor(state) {
     this.api = new CertificateApi()
 
     this.certificatePath = path.resolve(__dirname, '../ssl/cert.pem')
     this.certificateKeyPath = path.resolve(__dirname, '../ssl/key.pem')
 
-    this.hostname = hostname
-    this.httpsPort = 443
-  }
-
-  setHttpsPort (port) {
-    this.httpsPort = port
-    return this
-  }
-
-  setHostname (hostname) {
-    this.hostname = hostname
-    return this
+    this.state = state
   }
 
   isCached () {
@@ -84,11 +73,11 @@ module.exports = class Certificate {
         response.end('test')
       })
 
-      const server = https.createServer({cert, key}, app).listen(this.httpsPort)
+      const server = https.createServer({cert, key}, app).listen(this.state.getHttpsPort())
 
       const request = https.request({
-        host: this.hostname,
-        port: this.httpsPort,
+        host: this.state.getHostname(),
+        port: this.state.getHttpsPort(),
         method: 'get',
         path: '/'
       }, response => {
