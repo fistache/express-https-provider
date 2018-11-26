@@ -4,11 +4,12 @@
 ![License](https://img.shields.io/cocoapods/l/AFNetworking.svg)
 
 This is a JavaScript library that helps you to 
-run development express server easily (or just get a 
-valid ssl certificate to run a dev server using 
-different from express library). Forget about chrome 
-warnings, errors and etc. Please, never use this 
-library on production server.
+run development express server with trusted ssl 
+certificate easily (or just get a valid certificate 
+to run a dev server using different from express 
+library). Forget about chrome warnings, errors and 
+etc. Please, never use this library on production 
+server.
 
 ![Browser screenshot of trusted certificate on local machine (node.js)](https://raw.githubusercontent.com/seafoodframework/express-https-provider/master/docs/images/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
