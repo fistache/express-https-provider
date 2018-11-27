@@ -1,19 +1,34 @@
-# express-https-provider
-![Downloads](https://img.shields.io/npm/dw/express-https-provider.svg)
-[![Current Version](https://img.shields.io/npm/v/express-https-provider.svg)](https://github.com/seafoodframework/express-https-provider)
-![License](https://img.shields.io/cocoapods/l/AFNetworking.svg)
+<h1 align="center">express-https-provider</h1>
+<p align="center">
+    <a href="https://www.npmjs.com/package/express-https-provider"><img src="https://img.shields.io/npm/dw/express-https-provider.svg" alt="Downloads"></a>
+    <a href="https://github.com/seafoodframework/express-https-provider"><img src="https://img.shields.io/npm/v/express-https-provider.svg" alt="Version"></a>
+    <a href="https://github.com/seafoodframework/express-https-provider"><img src="https://img.shields.io/cocoapods/l/AFNetworking.svg" alt="License"></a>
+</p>
 
+## Sponsoring
+Seafood framework is open source project that will help 
+people around the world to create fast (really fast), clear, easy in use, 
+responsive apps (more details will be provided as 
+as possible). Your support give me an opportunity 
+to spend more time on the project.
+
+<a href="https://www.patreon.com/aliaksandrparfiankou">
+	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+<a href="https://www.buymeacoffee.com/parfiankou" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+## Description
 This is a JavaScript library that helps you to 
 run development express server with trusted ssl 
-certificate easily (or just get a valid certificate 
+certificate easily or get a valid certificate 
 to run a dev server using different from express 
-library). Forget about chrome warnings, errors and 
+library. Forget about chrome warnings, errors and 
 etc. Please, never use this library on production 
 server.
 
 > Attention! Your server will be serving both at `https://yourapp.name` 
-and `http://localhost`, but all request will be redirected to https 
-by default.
+and `http://localhost`, but all request will be 
+redirected to the first one by default.
 
 ![Browser screenshot of trusted certificate on local machine (node.js)](https://gist.githubusercontent.com/aliaksandrparfiankou/439bf6ea2eefb8f0b9c6deff86010964/raw/a6614fcba0c4e75312581d64eac03188f51ecac9/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
