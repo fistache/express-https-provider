@@ -6,7 +6,7 @@
     "https",
     "ssl"
   ],
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "index.js",
   "repository": "https://github.com/seafoodframework/yourappname.git",
   "author": "Aliaksandr Parfiankou <aliaksandr.parfiankou@gmail.com>",
@@ -26,7 +26,7 @@
     "vhost": "^3.0.2"
   },
   "devDependencies": {
-    "jest": "^23.6.0",
-    "del": "^3.0.0"
+    "del": "^3.0.0",
+    "jest": "^23.6.0"
   }
 }
