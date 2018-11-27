@@ -180,7 +180,7 @@ module.exports = class AppBuilder {
         .then(() => {
           const certificate = new Certificate(this.state)
 
-          certificate.get()
+          return certificate.get()
             .then(certificate => resolve(certificate))
             .catch(error => {
               console.error('Something went wrong. The certificate has been not received.')
