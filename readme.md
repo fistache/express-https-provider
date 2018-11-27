@@ -12,14 +12,14 @@ etc. Please, never use this library on production
 server.
 
 > Attention! Your server will be serving both at `https://yourapp.name` 
-and `http://localhost`, but all request will be redirected to to https 
+and `http://localhost`, but all request will be redirected to https 
 by default.
 
 ![Browser screenshot of trusted certificate on local machine (node.js)](https://gist.githubusercontent.com/aliaksandrparfiankou/439bf6ea2eefb8f0b9c6deff86010964/raw/a6614fcba0c4e75312581d64eac03188f51ecac9/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
 ## Installation
-Use [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/) 
-package manager to install this package.
+You can use [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/) 
+to install this package.
 
 #### Yarn
 ```bash
@@ -81,8 +81,8 @@ server before it runs.
 
 ###### Arguments
 - app - This is an [express](https://www.npmjs.com/package/express) 
-server instance where each request will be redirected. Use this 
-object to set up your server.
+server instance that process client requests. Use this object 
+to set up your server.
 - state - [AppState](#appstate) instance
 
 ```JavaScript
@@ -120,7 +120,7 @@ provider
 ```
 
 #### done
-It is an event hook fired after servers running.
+It is an event hook fired after server running.
 
 ###### Arguments
 - http - Http [server instance](https://nodejs.org/api/net.html#net_class_net_server) (returns by http.createServer().listen())
@@ -171,12 +171,11 @@ provider
 ```
 
 #### run
-Runs [express](https://www.npmjs.com/package/express) 
-servers and configurate if by methods described above.
+This method runs [express](https://www.npmjs.com/package/express) server.
 
 If you don't want to run [express](https://www.npmjs.com/package/express) 
-server and just want to get a certificate to run by your own you can use 
-[certificate](#certificate) method.
+server and just want to get a certificate to use it on your own 
+you can use [certificate](#certificate) method.
 
 ###### No arguments
 
@@ -195,12 +194,12 @@ const provider = require('express-https-provider')()
 
 const runProvider = async () => {
   await provider.run()
-  // Servers was run but done hook may not be fired yet!
+  // Server was run but done hook may not be fired yet!
 }
 ```
 
 #### certificate
-Provide trusted SSL certificate withour servers running.
+Provide trusted SSL certificate without server running.
 
 > Attention! Chainable method like modifyApp and others 
 actions do NOT make any effect on it.
@@ -221,6 +220,58 @@ provider.certificate()
       console.error('Whoops, something went wrong :(')
     })
 ```
+
+### AppState
+#### Methods
+- [getServingLink](#getservinglink)
+- [getNotSecureServingLink](#getnotsecureservinglink)
+- [getHttpPort](#gethttpport)
+- [getHttpsPort](#gethttpsport)
+- [getHostname](#gethostname)
+
+##### getServingLink
+###### No arguments
+**Return string**
+
+The method returns secure URL your server serving at.
+If 443 port is free it returns `https://yourapp.name`, 
+otherwise it do `https://yourapp.name:${port}` where 
+`${port}` is automatically selected free port. If you need to get 
+a port number for secure URL you can use [getHttpsPort](#gethttpsport) 
+method.
+
+##### getNotSecureServingLink
+**Return string**
+
+The method returns not secure URL your server serving at. 
+If 80 port is free it returns `http://localhost`, otherwise 
+it do `http://localhost:${port}` where `${port}` is 
+automatically selected free port. If you need to get 
+a port number for not secure URL you can use 
+[getHttpPort](#gethttpport) method.
+
+##### getHttpPort
+###### No arguments
+**Return int**
+
+The method returns port your http server listening on.
+If 80 port was free it return 80, otherwise automatically 
+selected free port.
+
+##### getHttpsPort
+###### No arguments
+**Return int**
+
+The method returns port your https server listening on.
+If 443 port was free it return 443, otherwise automatically 
+selected free port.
+
+##### getHostname
+###### No arguments
+**Return string**
+
+The method returns virtual host domain name your https 
+server serving at. Currently is `yourapp.name`.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
