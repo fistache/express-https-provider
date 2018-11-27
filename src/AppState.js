@@ -31,6 +31,14 @@ module.exports = class AppState {
     return link
   }
 
+  getNotSecureServingLink () {
+    let link = `http://localhost`
+    if (this.getHttpsPort() !== 80) {
+      link = `${link}:${this.getHttpPort()}`
+    }
+    return link
+  }
+
   setHostname (hostname) {
     this.hostname = hostname
     return this
