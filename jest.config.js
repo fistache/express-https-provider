@@ -1,3 +1,4 @@
 module.exports = {
-  "testMatch": ["**/tests/**/*.js"]
+  testMatch: ["**/tests/**/*.js"],
+  setupTestFrameworkScriptFile: './jest.setup.js'
 }
