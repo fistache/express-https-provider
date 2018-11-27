@@ -1,8 +1,23 @@
-# express-https-provider
-![Downloads](https://img.shields.io/npm/dw/express-https-provider.svg)
-[![Current Version](https://img.shields.io/npm/v/express-https-provider.svg)](https://github.com/seafoodframework/express-https-provider)
-![License](https://img.shields.io/cocoapods/l/AFNetworking.svg)
+<h1 align="center">express-https-provider</h1>
+<p align="center">
+    <a href="https://www.npmjs.com/package/express-https-provider"><img src="https://img.shields.io/npm/dw/express-https-provider.svg" alt="Downloads"></a>
+    <a href="https://github.com/seafoodframework/express-https-provider"><img src="https://img.shields.io/npm/v/express-https-provider.svg" alt="Version"></a>
+    <a href="https://github.com/seafoodframework/express-https-provider"><img src="https://img.shields.io/cocoapods/l/AFNetworking.svg" alt="License"></a>
+</p>
 
+## Sponsoring
+Seafood framework is open source project that will help 
+people around the world to create fast (really fast), clear, easy in use, 
+responsive apps (more details will be provided as 
+as possible). Your support give me an opportunity 
+to spend more time on the project.
+
+<a href="https://www.patreon.com/aliaksandrparfiankou">
+	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+</a>
+<a href="https://www.buymeacoffee.com/parfiankou" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+## Description
 This is a JavaScript library that helps you to 
 run development express server with trusted ssl 
 certificate easily or get a valid certificate 
