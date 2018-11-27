@@ -5,15 +5,15 @@
 
 This is a JavaScript library that helps you to 
 run development express server with trusted ssl 
-certificate easily (or just get a valid certificate 
+certificate easily or get a valid certificate 
 to run a dev server using different from express 
-library). Forget about chrome warnings, errors and 
+library. Forget about chrome warnings, errors and 
 etc. Please, never use this library on production 
 server.
 
 > Attention! Your server will be serving both at `https://yourapp.name` 
-and `http://localhost`, but all request will be redirected to https 
-by default.
+and `http://localhost`, but all request will be 
+redirected to the first one by default.
 
 ![Browser screenshot of trusted certificate on local machine (node.js)](https://gist.githubusercontent.com/aliaksandrparfiankou/439bf6ea2eefb8f0b9c6deff86010964/raw/a6614fcba0c4e75312581d64eac03188f51ecac9/browser.PNG "Browser screenshot of trusted certificate on local machine (node.js)")
 
